@@ -11,9 +11,18 @@
 
 <h2 id="character"></h2>
 
+<button onclick="startGame()">Oyuna Gir</button>
+
 <script>
+
 let character = localStorage.getItem("character");
+
 document.getElementById("character").innerText = "Karakterin: " + character;
+
+function startGame(){
+alert("Oyun yakında başlıyor 😎");
+}
+
 </script>
 
 </body>
