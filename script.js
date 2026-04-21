@@ -1,16 +1,43 @@
-let character = "";
-
-function selectCharacter(name){
-character = name;
-alert(name + " seçildi!");
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+text-align:center;
 }
 
-function goGame(){
-if(character === ""){
-alert("Önce karakter seç!");
-return;
+.container{
+padding:20px;
 }
 
-localStorage.setItem("character", character);
-window.location.href = "game.html";
+.characters{
+display:flex;
+justify-content:center;
+gap:30px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.1);
+}
+
+.card img{
+width:150px;
+}
+
+button{
+margin-top:30px;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#22c55e;
+color:white;
 }
