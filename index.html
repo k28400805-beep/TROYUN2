@@ -1,40 +1,72 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karakter Seçimi</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<button onclick="earnGold()">💰 Altın Kazan</button>
+<button onclick="heal()">❤️ İyileş</button>
 
-<div class="container">
+<script>
 
-<h1>🎮 Karakterini Seç</h1>
+let character = localStorage.getItem("character");
+let health = 100;
+let gold = 0;
+let level = 1;
+let power = 0;
 
-<div class="characters">
+if(character === "Savaşçı"){
+power = 100;
+}
 
-<div class="card" onclick="selectCharacter('Savaşçı')">
-<img src="https://i.imgur.com/1X5QH6K.png">
-<h2>Savaşçı</h2>
-</div>
+if(character === "Büyücü"){
+power = 70;
+}
 
-<div class="card" onclick="selectCharacter('Büyücü')">
-<img src="https://i.imgur.com/Z9q9Z6v.png">
-<h2>Büyücü</h2>
-</div>
+if(character === "Okçu"){
+power = 80;
+}
 
-<div class="card" onclick="selectCharacter('Okçu')">
-<img src="https://i.imgur.com/jTqGZ6G.png">
-<h2>Okçu</h2>
-</div>
 
-</div>
+document.getElementById("character").innerText = "Karakterin: " + character;
+document.getElementById("health").innerText = health;
+document.getElementById("power").innerText = power;
 
-<button onclick="goGame()">Oyuna Başla</button>
+function fight(){
+health -= 10;
+gold += 5;
 
-</div>
+if(health <= 0){
+alert("Kaybettin!");
+health = 100;
+}
 
-<script src="script.js"></script>
+update();
+}
+
+function earnGold(){
+ gold += 10;
+ update();
+}
+
+function heal(){
+health += 10;
+
+if(health > 100){
+health = 100;
+}
+
+update();
+}
+
+function update(){
+if(gold >= 100){
+level++;
+gold = 0;
+alert("Level Atladın!");
+}
+
+document.getElementById("gold").innerText = gold;
+document.getElementById("level").innerText = level;
+document.getElementById("health").innerText = health;
+}
+
+</script>
+
 </body>
 </html>
