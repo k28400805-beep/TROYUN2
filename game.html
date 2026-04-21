@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Oyun</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Oyuna Hoşgeldin</h1>
+
+<h2 id="character"></h2>
+
+<script>
+let character = localStorage.getItem("character");
+document.getElementById("character").innerText = "Karakterin: " + character;
+</script>
+
+</body>
+</html>
