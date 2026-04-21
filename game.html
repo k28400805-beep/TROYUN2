@@ -1,19 +1,61 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<title>Oyun</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<p>⚔️ Güç: <span id="power"></span></p>
+<p>💰 Altın: <span id="gold">0</span></p>
+<p>⭐ Level: <span id="level">1</span></p>
+</div>
 
-<h1>Oyuna Hoşgeldin</h1>
-
-<h2 id="character"></h2>
+<button onclick="fight()">⚔️ Savaş</button>
+<button onclick="earnGold()">💰 Altın Kazan</button>
 
 <script>
+
 let character = localStorage.getItem("character");
+let health = 100;
+let gold = 0;
+let level = 1;
+let power = 0;
+
+if(character === "Savaşçı"){
+power = 100;
+}
+
+if(character === "Büyücü"){
+power = 70;
+}
+
+if(character === "Okçu"){
+power = 80;
+}
+
+
 document.getElementById("character").innerText = "Karakterin: " + character;
+document.getElementById("health").innerText = health;
+document.getElementById("power").innerText = power;
+
+function fight(){
+health -= 10;
+
+if(health <= 0){
+alert("Kaybettin!");
+health = 100;
+}
+
+document.getElementById("health").innerText = health;
+}
+
+function earnGold(){
+ gold += 10;
+
+if(gold >= 100){
+level++;
+gold = 0;
+alert("Level Atladın!");
+}
+
+document.getElementById("gold").innerText = gold;
+document.getElementById("level").innerText = level;
+}
+
 </script>
 
 </body>
